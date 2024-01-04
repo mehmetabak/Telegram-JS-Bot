@@ -16,7 +16,7 @@ bot.start(ctx => {
 })
 
 bot.help((ctx) => {
-    ctx.reply('Send /start to receive a greeting, \n Send /getpdf to receive the pdfs.')
+    ctx.reply('·Send /start to receive a greeting, \n·Send /getpdf to receive the pdfs.')
   });
 
 //Experimental
