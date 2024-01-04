@@ -12,7 +12,7 @@ bot.start(ctx => {
   }
 })
 
-bot.command('cat', ({ replyWithPhoto }) => replyWithPhoto(randomPhoto))
+bot.command('cat', ({ replyWithPhoto }) => replyWithPhoto({ url: randomPhoto}))
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async event => {
