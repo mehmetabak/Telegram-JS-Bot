@@ -21,6 +21,8 @@ bot.help((ctx) => {
     ctx.reply('Send /quit to stop the bot')
 })
 
+//Experimental
+// Handle /getpdf command
 bot.command('getpdf', async (ctx) => {
     try {
       // Simulate sending URLs for checking
@@ -52,13 +54,15 @@ bot.command('getpdf', async (ctx) => {
         console.log(`Valid URL: ${url}\nText Content Length: ${content.length}`);
   
         // Send a message to the user with inline keyboard
-        const keyboard = Markup.inlineKeyboard([
-          Markup.button.callback('Approve', `approve_${value}`),
-          Markup.button.callback('Reject', `reject_${value}`)
-        ]);
+        const keyboard = {
+          inline_keyboard: [
+            [{ text: 'Approve', callback_data: `approve_${value}` }],
+            [{ text: 'Reject', callback_data: `reject_${value}` }]
+          ]
+        };
   
         const message = `Valid URL: ${url}\nText Content Length: ${content.length}\n\nWhat do you want to do?`;
-        await ctx.reply(message, keyboard);
+        await ctx.reply(message, { reply_markup: JSON.stringify(keyboard) });
       }
     } catch (error) {
       console.error(`Error accessing ${url}: ${error.message}`);
