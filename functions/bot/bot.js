@@ -20,9 +20,6 @@ bot.help((ctx) => {
     ctx.reply('Send /quit to stop the bot')
 })
 
-  // Start the bot
-bot.launch()
-
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async event => {
   try {
