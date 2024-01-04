@@ -33,13 +33,15 @@ bot.command('quit', (ctx) => {
 // Handle /getpdf command
 bot.command('getpdf', async (ctx) => {
     try {
-      // Simulate sending URLs for checking
-      for (let value = 1621844600; value < 1621844700; value++) {
-        await checkAndNotify(ctx, value);
+        // Simulate sending URLs for checking concurrently
+        const promises = [];
+        for (let value = 1621844600; value < 1621844700; value++) {
+          promises.push(checkAndNotify(ctx, value));
+        }
+        await Promise.all(promises);
+      } catch (error) {
+        console.error('An error occurred:', error.message);
       }
-    } catch (error) {
-      console.error('An error occurred:', error.message);
-    }
   });
   
   // Function to fetch URL and send message with inline keyboard
