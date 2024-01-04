@@ -8,7 +8,7 @@ const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/is
 bot.start(ctx => {
     console.log("Received /start command")
     try {
-        return ctx.reply("Hi")
+        return ctx.reply("Hi, you can get all commands with /help command")
     } catch (e) {
         console.error("error in start action:", e)
         return ctx.reply("Error occured")
@@ -17,11 +17,12 @@ bot.start(ctx => {
 
 bot.help((ctx) => {
     ctx.reply('Send /start to receive a greeting')
-    ctx.reply('Send /keyboard to receive a message with a keyboard')
+    ctx.reply('Send /getpdf to receive the pdfs')
     ctx.reply('Send /quit to stop the bot')
 })
 
 //Experimental
+
 // Handle /getpdf command
 bot.command('getpdf', async (ctx) => {
     try {
@@ -72,9 +73,9 @@ bot.command('getpdf', async (ctx) => {
   // Handle inline keyboard button clicks
   bot.action(/(approve|reject)_\d+/, (ctx) => {
     const [action, value] = ctx.match[0].split('_');
-  
+    const url = BASE_URL.replace('{}', value);
     // Implement your logic here based on the user's choice
-    ctx.reply(`You chose to ${action} URL ${value}`);
+    ctx.reply(`You chose to ${action} URL ${url}`);
   });
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
