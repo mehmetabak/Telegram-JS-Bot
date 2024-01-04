@@ -8,7 +8,7 @@ const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/is
 bot.start(ctx => {
     console.log("Received /start command")
     try {
-        return ctx.reply("Hi, you can get all commands with /help command")
+        return ctx.reply("Hi" + ctx.from.first_name + "you can get all commands with /help command")
     } catch (e) {
         console.error("error in start action:", e)
         return ctx.reply("Error occured")
@@ -20,6 +20,13 @@ bot.help((ctx) => {
     ctx.reply('Send /getpdf to receive the pdfs')
     ctx.reply('Send /quit to stop the bot')
 })
+
+bot.command('quit', (ctx) => {
+    // Explicit usage
+    ctx.telegram.leaveChat(ctx.message.chat.id);
+  // Context shortcut
+    ctx.leaveChat();
+  });
 
 //Experimental
 
