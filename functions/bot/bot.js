@@ -20,11 +20,14 @@ bot.help((ctx) => {
     ctx.reply('Send /quit to stop the bot')
 })
 
-// Handle /getpdf command
-bot.command('getpdf', (ctx) => {
-    // Simulate sending URLs for checking
-    for (let value = 1621844600; value < 1621844700; value++) {
-      checkAndNotify(ctx, value);
+bot.command('getpdf', async (ctx) => {
+    try {
+      // Simulate sending URLs for checking
+      for (let value = 1621844600; value < 1621844700; value++) {
+        await checkAndNotify(ctx, value);
+      }
+    } catch (error) {
+      console.error('An error occurred:', error.message);
     }
   });
   
@@ -33,15 +36,15 @@ bot.command('getpdf', (ctx) => {
     const url = BASE_URL.replace('{}', value);
   
     try {
-      const response = await fetch(url);
+      const response = await axios.get(url);
   
-      // Check if the response status is OK
-      if (!response.ok) {
-        console.error(`Error accessing ${url}: ${response.statusText}`);
+      // Check if the response status is not OK
+      if (response.status !== 200) {
+        console.error(`Error accessing ${url}: HTTP status ${response.status}`);
         return;
       }
   
-      const content = await response.text();
+      const content = response.data;
   
       // Check if the content is not empty and does not contain "Not Found"
       if (content && !content.includes("Not Found")) {

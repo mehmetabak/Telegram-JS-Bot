@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.4",
     "netlify-lambda": "^2.0.16",
     "telegraf": "^4.15.3"
   }
