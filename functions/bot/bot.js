@@ -2,9 +2,6 @@ const { Telegraf } = require("telegraf")
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
-var img = new Image()
-img.src = 'https://picsum.photos/200/300/?random';
-
 bot.start(ctx => {
   console.log("Received /start command")
   try {
