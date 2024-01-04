@@ -18,13 +18,6 @@ bot.start(ctx => {
 bot.help((ctx) => {
     ctx.reply('Send /start to receive a greeting')
       .then(() => ctx.reply('Send /getpdf to receive the pdfs'))
-      .then(() => ctx.reply('Send /quit to stop the bot'));
-  });
-bot.command('quit', (ctx) => {
-    // Explicit usage
-    ctx.telegram.leaveChat(ctx.message.chat.id);
-  // Context shortcut
-    ctx.leaveChat();
   });
 
 //Experimental
