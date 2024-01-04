@@ -13,7 +13,13 @@ bot.start(ctx => {
   }
 })
 
-bot.command('cat', ({ replyWithPhoto }) => replyWithPhoto({ url: randomPhoto}))
+//bot.command('cat', ({ replyWithPhoto }) => replyWithPhoto({ url: randomPhoto}))
+
+bot.help((ctx) => {
+    ctx.reply('Send /start to receive a greeting');
+    ctx.reply('Send /keyboard to receive a message with a keyboard');
+    ctx.reply('Send /quit to stop the bot');
+  });
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async event => {
