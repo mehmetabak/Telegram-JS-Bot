@@ -7,7 +7,6 @@ img.src = 'https://picsum.photos/200/300/?random';
 
 bot.start(ctx => {
   console.log("Received /start command")
-  ctx.replyWithPhoto(img)
   try {
     return ctx.reply("Hi")
   } catch (e) {
