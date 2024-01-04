@@ -48,13 +48,6 @@ bot.command('getpdf', async (ctx) => {
   
     try {
       const response = await axios.get(url);
-  
-      // Check if the response status is not OK
-      if (response.status !== 200) {
-        console.error(`Error accessing ${url}: HTTP status ${response.status}`);
-        return;
-      }
-  
       const content = response.data;
   
       // Check if the content is not empty and does not contain "Not Found"
