@@ -29,29 +29,36 @@ bot.command('getpdf', (ctx) => {
   });
   
   // Function to fetch URL and send message with inline keyboard
-  function checkAndNotify(ctx, value) {
+  async function checkAndNotify(ctx, value) {
     const url = BASE_URL.replace('{}', value);
   
-    fetch(url)
-      .then(response => response.text())
-      .then(content => {
-        // Check if the content is not empty and does not contain "Not Found"
-        if (content && !content.includes("Not Found")) {
-          console.log(`Valid URL: ${url}\nText Content Length: ${content.length}`);
+    try {
+      const response = await fetch(url);
   
-          // Send a message to the user with inline keyboard
-          const keyboard = Markup.inlineKeyboard([
-            Markup.button.callback('Approve', `approve_${value}`),
-            Markup.button.callback('Reject', `reject_${value}`)
-          ]);
+      // Check if the response status is OK
+      if (!response.ok) {
+        console.error(`Error accessing ${url}: ${response.statusText}`);
+        return;
+      }
   
-          const message = `Valid URL: ${url}\nText Content Length: ${content.length}\n\nWhat do you want to do?`;
-          ctx.reply(message, keyboard);
-        }
-      })
-      .catch(error => {
-        console.error(`Error accessing ${url}: ${error}`);
-      });
+      const content = await response.text();
+  
+      // Check if the content is not empty and does not contain "Not Found"
+      if (content && !content.includes("Not Found")) {
+        console.log(`Valid URL: ${url}\nText Content Length: ${content.length}`);
+  
+        // Send a message to the user with inline keyboard
+        const keyboard = Markup.inlineKeyboard([
+          Markup.button.callback('Approve', `approve_${value}`),
+          Markup.button.callback('Reject', `reject_${value}`)
+        ]);
+  
+        const message = `Valid URL: ${url}\nText Content Length: ${content.length}\n\nWhat do you want to do?`;
+        await ctx.reply(message, keyboard);
+      }
+    } catch (error) {
+      console.error(`Error accessing ${url}: ${error.message}`);
+    }
   }
   
   // Handle inline keyboard button clicks
