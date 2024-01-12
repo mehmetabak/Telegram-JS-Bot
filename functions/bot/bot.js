@@ -8,7 +8,7 @@ const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/is
 bot.start(ctx => {
     console.log("Received /start command")
     try {
-        return ctx.reply("Hi " + ctx.from.first_name + " ,you can get all commands with /help command")
+        return ctx.reply("Hi " + ctx.from.first_name + ", you can get all commands with /help command")
     } catch (e) {
         console.error("error in start action:", e)
         return ctx.reply("Error occured")
