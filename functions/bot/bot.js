@@ -17,7 +17,7 @@ bot.start(async (ctx) => {
 
 bot.help(async (ctx) => {
     ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs.');
-  });
+});
 
 //Experimental
 
@@ -53,52 +53,52 @@ bot.command('getpdf', async (ctx) => {
   }
 });
   
-  // Function to fetch URL and send message with inline keyboard
-  async function checkAndNotify(ctx, value, step) {
-    const url = BASE_URL.replace('{}', value);
+// Function to fetch URL and send message with inline keyboard
+async function checkAndNotify(ctx, value, step) {
+  const url = BASE_URL.replace('{}', value);
   
-    try {
-      const response = await axios.get(url);
-      const content = response.data;
+  try {
+    const response = await axios.get(url);
+    const content = response.data;
   
-      // Check if the content is not empty and does not contain "Not Found"
-      if (content && !content.includes("Not Found")) {
-        console.log(`Valid URL: ${url}\nText Content Length: ${content.length}`);
+    // Check if the content is not empty and does not contain "Not Found"
+    if (content && !content.includes("Not Found")) {
+      console.log(`Valid URL: ${url}\nText Content Length: ${content.length}`);
   
-        // Send a message to the user with inline keyboard
-        const keyboard = {
-          inline_keyboard: [
-            [{ text: 'Approve', callback_data: `approve_${value}` }],
-            [{ text: 'Reject', callback_data: `reject_${value}` }]
-          ]
-        };
+      // Send a message to the user with inline keyboard
+      const keyboard = {
+        inline_keyboard: [
+          [{ text: 'Approve', callback_data: `approve_${value}` }],
+          [{ text: 'Reject', callback_data: `reject_${value}` }]
+        ]
+      };
   
-        const message = `Valid URL: ${url}\nText Content Length: ${content.length}\n\nWhat do you want to do?`;
-        await ctx.reply(message, { reply_markup: JSON.stringify(keyboard) });
+      const message = `Valid URL: ${url}\nText Content Length: ${content.length}\n\nWhat do you want to do?`;
+      await ctx.reply(message, { reply_markup: JSON.stringify(keyboard) });
 
-        if(step == 1){
-          await ctx.reply('Search is finished.');
-        }
-      }
-    } catch (error) {
-      console.error(`Error accessing ${url}: ${error.message}`);
       if(step == 1){
-        await ctx.reply('Search is finished. URL`s are sending');
+        await ctx.reply('Search is finished.');
       }
+    }
+  } catch (error) {
+    console.error(`Error accessing ${url}: ${error.message}`);
+    if(step == 1){
+      await ctx.reply('Search is finished. URL`s are sending');
     }
   }
+}
   
-  // Handle inline keyboard button clicks
-  bot.action(/(approve|reject)_\d+/, (ctx) => {
-    const [action, value] = ctx.match[0].split('_');
-    const url = BASE_URL.replace('{}', value);
-    // Implement your logic here based on the user's choice
-    if(`approve` == action){
-      ctx.reply(`You chose to ${action} URL: ${url}`);
-    }else {
-      ctx.reply(`You chose to ${action} :( `);
-    }
-  });
+// Handle inline keyboard button clicks
+bot.action(/(approve|reject)_\d+/, (ctx) => {
+  const [action, value] = ctx.match[0].split('_');
+  const url = BASE_URL.replace('{}', value);
+  // Implement your logic here based on the user's choice
+  if(`approve` == action){
+    ctx.reply(`You chose to ${action} URL: ${url}`);
+  }else {
+    ctx.reply(`You chose to ${action} :( `);
+  }
+});
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async event => {
