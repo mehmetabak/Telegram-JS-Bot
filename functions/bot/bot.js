@@ -31,14 +31,21 @@ bot.command('getpdf', async (ctx) => {
       startValue = 1621844600;
       endValue = 1621844700;
       await ctx.reply('Please provide two numeric values after the /getpdf command If you want something other than the normal sources.');
+    
+      // Simulate sending URLs for checking concurrently
+      const promises = [];
+      for (let value = startValue; value < endValue; value++) {
+        promises.push(checkAndNotify(ctx, value));
+      }
+      await Promise.all(promises);
+    }else {
+      // Simulate sending URLs for checking concurrently
+      const promises = [];
+      for (let value = startValue; value < endValue; value++) {
+        promises.push(checkAndNotify(ctx, value));
+      }
+      await Promise.all(promises);
     }
-
-    // Simulate sending URLs for checking concurrently
-    const promises = [];
-    for (let value = startValue; value < endValue; value++) {
-      promises.push(checkAndNotify(ctx, value));
-    }
-    await Promise.all(promises);
   } catch (error) {
     console.error('An error occurred:', error.message);
   }
