@@ -82,6 +82,8 @@ bot.command('getpdf', async (ctx) => {
     // Implement your logic here based on the user's choice
     if(approve == action){
       ctx.reply(`You chose to ${action} URL: ${url} Command: ${searchCommand}`);
+    }else {
+      ctx.reply(`You chose to ${action} :( `);
     }
   });
 
