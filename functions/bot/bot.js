@@ -36,10 +36,7 @@ bot.command('getpdf', async (ctx) => {
       await ctx.reply('Search is starting...');
       const promises = [];
       for (let value = startValue; value < endValue; value++) {
-        promises.push(checkAndNotify(ctx, value));
-        if(value + 1 == endValue){
-          await ctx.reply('Search is finished.');
-        }
+        promises.push(checkAndNotify(ctx, value, endValue - value));
       }
       await Promise.all(promises);
     }else {
@@ -47,10 +44,7 @@ bot.command('getpdf', async (ctx) => {
       await ctx.reply('Search is starting...');
       const promises = [];
       for (let value = startValue; value < endValue; value++) {
-        promises.push(checkAndNotify(ctx, value));
-        if(value + 1 == endValue){
-          await ctx.reply('Search is finished.');
-        }
+        promises.push(checkAndNotify(ctx, value, endValue - value));
       }
       await Promise.all(promises);
     }
@@ -60,7 +54,7 @@ bot.command('getpdf', async (ctx) => {
 });
   
   // Function to fetch URL and send message with inline keyboard
-  async function checkAndNotify(ctx, value) {
+  async function checkAndNotify(ctx, value, step) {
     const url = BASE_URL.replace('{}', value);
   
     try {
@@ -81,6 +75,9 @@ bot.command('getpdf', async (ctx) => {
   
         const message = `Valid URL: ${url}\nText Content Length: ${content.length}\n\nWhat do you want to do?`;
         await ctx.reply(message, { reply_markup: JSON.stringify(keyboard) });
+        if(step == 1){
+          await ctx.reply('Search is finished.');
+        }
       }
     } catch (error) {
       console.error(`Error accessing ${url}: ${error.message}`);
