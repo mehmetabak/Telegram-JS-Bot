@@ -5,17 +5,17 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/isleronline-{}.pdf";
 
-bot.start(ctx => {
+bot.start(async (ctx) => {
     console.log("Received /start command");
     try {
-        return ctx.reply("Hi " + ctx.from.first_name + ", you can get all commands with /help command");
+        await ctx.reply("Hi " + ctx.from.first_name + ", you can get all commands with /help command");
     } catch (e) {
         console.error("error in start action:", e);
-        return ctx.reply("Error occured");
+        await ctx.reply("Error occured");
     }
 })
 
-bot.help((ctx) => {
+bot.help(async (ctx) => {
     ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs.');
   });
 
