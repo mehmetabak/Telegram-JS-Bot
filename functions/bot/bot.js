@@ -82,6 +82,9 @@ bot.command('getpdf', async (ctx) => {
       }
     } catch (error) {
       console.error(`Error accessing ${url}: ${error.message}`);
+      if(step == 1){
+        await ctx.reply('Search is finished.');
+      }
     }
   }
   
