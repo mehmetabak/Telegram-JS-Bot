@@ -5,6 +5,8 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/isleronline-{}.pdf"
 
+let searchCommand = "/getpdf 1621844600 1621844700"
+
 bot.start(ctx => {
     console.log("Received /start command")
     try {
@@ -26,8 +28,10 @@ bot.command('getpdf', async (ctx) => {
   try {
     const commandParams = ctx.message.text.split(' ').slice(1);
     let [startValue, endValue] = commandParams.map(Number);
+    searchCommand = "/getpdf " + startValue + " " + endValue
 
     if (isNaN(startValue) || isNaN(endValue) || commandParams.length !== 2) {
+      searchCommand = "/getpdf 1621844600 1621844700"
       startValue = 1621844600
       endValue = 1621844700
       await ctx.reply('Please provide two numeric values after the /getpdf command If you want something other than the normal sources.');
@@ -77,7 +81,7 @@ bot.command('getpdf', async (ctx) => {
     const [action, value] = ctx.match[0].split('_');
     const url = BASE_URL.replace('{}', value);
     // Implement your logic here based on the user's choice
-    ctx.reply(`You chose to ${action} URL ${url}`);
+    ctx.reply(`You chose to ${action} URL ${url} Command ${searchCommand}`);
   });
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
