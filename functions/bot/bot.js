@@ -24,24 +24,15 @@ bot.help(async (ctx) => {
 // Handle /getpdf command
 bot.command('getpdf', async (ctx) => {
   try {
-    const commandParams = ctx.message.text.split(' ').slice(1);
-    let [startValue, endValue] = commandParams.map(Number);
-
-    if (isNaN(startValue) || isNaN(endValue) || commandParams.length !== 2) {
-      startValue = 1621844600;
-      endValue = 1621844700;
-      await ctx.reply('Please provide two numeric values after the /getpdf command If you want something other than the normal sources.');
+      // Simulate sending URLs for checking concurrently
+      const promises = [];
+      for (let value = 1621844600; value < 1621844700; value++) {
+        promises.push(checkAndNotify(ctx, value));
+      }
+      await Promise.all(promises);
+    } catch (error) {
+      console.error('An error occurred:', error.message);
     }
-
-    // Simulate sending URLs for checking concurrently
-    const promises = [];
-    for (let value = startValue; value < endValue; value++) {
-      promises.push(checkAndNotify(ctx, value));
-    }
-    await Promise.all(promises);
-  } catch (error) {
-    console.error('An error occurred:', error.message);
-  }
 });
   
   // Function to fetch URL and send message with inline keyboard
