@@ -1,6 +1,7 @@
 [build]
   functions = "functions"
   command = "netlify-lambda install && mkdir ./public"
+  timeout = 60
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
