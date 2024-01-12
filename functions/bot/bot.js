@@ -5,8 +5,6 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/isleronline-{}.pdf"
 
-let searchCommand = "/getpdf 1621844600 1621844700"
-
 bot.start(ctx => {
     console.log("Received /start command")
     try {
@@ -32,7 +30,6 @@ bot.command('getpdf', async (ctx) => {
     if (isNaN(startValue) || isNaN(endValue) || commandParams.length !== 2) {
       startValue = 1621844600
       endValue = 1621844700
-      searchCommand = "/getpdf " + startValue + " " + endValue;
       await ctx.reply('Please provide two numeric values after the /getpdf command If you want something other than the normal sources.');
     }
 
@@ -81,7 +78,7 @@ bot.command('getpdf', async (ctx) => {
     const url = BASE_URL.replace('{}', value);
     // Implement your logic here based on the user's choice
     if(`approve` == action){
-      ctx.reply(`You chose to ${action} URL: ${url} Command: ${searchCommand}`);
+      ctx.reply(`You chose to ${action} URL: ${url}`);
     }else {
       ctx.reply(`You chose to ${action} :( `);
     }
