@@ -1,22 +1,22 @@
-const { Telegraf } = require("telegraf")
+const { Telegraf } = require("telegraf");
 const axios = require('axios');
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
-const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/isleronline-{}.pdf"
+const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/isleronline-{}.pdf";
 
 bot.start(ctx => {
-    console.log("Received /start command")
+    console.log("Received /start command");
     try {
-        return ctx.reply("Hi " + ctx.from.first_name + ", you can get all commands with /help command")
+        return ctx.reply("Hi " + ctx.from.first_name + ", you can get all commands with /help command");
     } catch (e) {
-        console.error("error in start action:", e)
-        return ctx.reply("Error occured")
+        console.error("error in start action:", e);
+        return ctx.reply("Error occured");
     }
 })
 
 bot.help((ctx) => {
-    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs.')
+    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs.');
   });
 
 //Experimental
@@ -28,8 +28,8 @@ bot.command('getpdf', async (ctx) => {
     let [startValue, endValue] = commandParams.map(Number);
 
     if (isNaN(startValue) || isNaN(endValue) || commandParams.length !== 2) {
-      startValue = 1621844600
-      endValue = 1621844700
+      startValue = 1621844600;
+      endValue = 1621844700;
       await ctx.reply('Please provide two numeric values after the /getpdf command If you want something other than the normal sources.');
     }
 
@@ -87,10 +87,10 @@ bot.command('getpdf', async (ctx) => {
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async event => {
   try {
-    await bot.handleUpdate(JSON.parse(event.body))
-    return { statusCode: 200, body: "" }
+    await bot.handleUpdate(JSON.parse(event.body));
+    return { statusCode: 200, body: "" };
   } catch (e) {
-    console.error("error in handler:", e)
-    return { statusCode: 400, body: "This endpoint is meant for bot and telegram communication" }
+    console.error("error in handler:", e);
+    return { statusCode: 400, body: "This endpoint is meant for bot and telegram communication" };
   }
 }
