@@ -28,7 +28,7 @@ bot.command('getpdf', async (ctx) => {
   try {
     const commandParams = ctx.message.text.split(' ').slice(1);
     let [startValue, endValue] = commandParams.map(Number);
-    searchCommand = "/getpdf " + startValue + " " + endValue
+    searchCommand = "/getpdf " + startValue + " " + endValue;
 
     if (isNaN(startValue) || isNaN(endValue) || commandParams.length !== 2) {
       searchCommand = "/getpdf 1621844600 1621844700"
