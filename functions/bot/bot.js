@@ -28,12 +28,11 @@ bot.command('getpdf', async (ctx) => {
   try {
     const commandParams = ctx.message.text.split(' ').slice(1);
     let [startValue, endValue] = commandParams.map(Number);
-    searchCommand = "/getpdf " + startValue + " " + endValue;
 
     if (isNaN(startValue) || isNaN(endValue) || commandParams.length !== 2) {
-      searchCommand = "/getpdf 1621844600 1621844700"
       startValue = 1621844600
       endValue = 1621844700
+      searchCommand = "/getpdf " + startValue + " " + endValue;
       await ctx.reply('Please provide two numeric values after the /getpdf command If you want something other than the normal sources.');
     }
 
