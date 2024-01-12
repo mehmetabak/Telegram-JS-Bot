@@ -80,7 +80,7 @@ bot.command('getpdf', async (ctx) => {
     const [action, value] = ctx.match[0].split('_');
     const url = BASE_URL.replace('{}', value);
     // Implement your logic here based on the user's choice
-    if(approve == action){
+    if(`approve` == action){
       ctx.reply(`You chose to ${action} URL: ${url} Command: ${searchCommand}`);
     }else {
       ctx.reply(`You chose to ${action} :( `);
