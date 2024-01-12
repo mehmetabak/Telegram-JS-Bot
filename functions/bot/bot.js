@@ -75,6 +75,7 @@ bot.command('getpdf', async (ctx) => {
   
         const message = `Valid URL: ${url}\nText Content Length: ${content.length}\n\nWhat do you want to do?`;
         await ctx.reply(message, { reply_markup: JSON.stringify(keyboard) });
+
         if(step == 1){
           await ctx.reply('Search is finished.');
         }
