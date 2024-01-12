@@ -33,16 +33,24 @@ bot.command('getpdf', async (ctx) => {
       await ctx.reply('Please provide two numeric values after the /getpdf command If you want something other than the normal sources.');
     
       // Simulate sending URLs for checking concurrently
+      await ctx.reply('Search is starting...');
       const promises = [];
       for (let value = startValue; value < endValue; value++) {
         promises.push(checkAndNotify(ctx, value));
+        if(value + 1 == endValue){
+          await ctx.reply('Search is finished.');
+        }
       }
       await Promise.all(promises);
     }else {
       // Simulate sending URLs for checking concurrently
+      await ctx.reply('Search is starting...');
       const promises = [];
       for (let value = startValue; value < endValue; value++) {
         promises.push(checkAndNotify(ctx, value));
+        if(value + 1 == endValue){
+          await ctx.reply('Search is finished.');
+        }
       }
       await Promise.all(promises);
     }
