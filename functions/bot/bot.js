@@ -22,34 +22,35 @@ bot.help(async (ctx) => {
 bot.command('sites', async (ctx) => {
     await ctx.replyWithMarkdownV2(`
  📌 [**Personal Blog**](https://m0s.vercel.app)
-    - ![Blog Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
+    - [![Blog Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)](https://m0s.vercel.app)
  
  📄 [**CV**](https://cv-ma.vercel.app)
-    - ![File Icon](https://www.svgrepo.com/show/112988/cv-file-interface-symbol.svg)
+    - [![File Icon](https://www.svgrepo.com/show/112988/cv-file-interface-symbol.svg)](https://cv-ma.vercel.app)
  
  🚀 [**Portfolio**](https://mehmetabak.is-a.dev)
-    - ![Code Branch Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
+    - [![Code Branch Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)](https://mehmetabak.is-a.dev)
  
  🏢 [**Research Projects**](https://arastir.super.site)
-    - ![Building Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
+    - [![Building Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)](https://arastir.super.site)
  
  📂 [**GitHub Profile**](https://github.com/memoli0)
-    - ![GitHub Icon](https://www.svgrepo.com/show/512317/github-142.svg)
+    - [![GitHub Icon](https://www.svgrepo.com/show/512317/github-142.svg)](https://github.com/memoli0)
  
  📝 [**Medium Articles**](https://medium.com/@mehmetnurAbak)
-    - ![Medium Icon](https://www.svgrepo.com/show/521749/medium.svg)
+    - [![Medium Icon](https://www.svgrepo.com/show/521749/medium.svg)](https://medium.com/@mehmetnurAbak)
  
  💻 [**Dev.to Profile**](https://dev.to/memoli0)
-    - ![Dev.to Icon](https://www.svgrepo.com/show/349334/dev-to.svg)
+    - [![Dev.to Icon](https://www.svgrepo.com/show/349334/dev-to.svg)](https://dev.to/memoli0)
  
  🌐 [**Hashnode Blog**](https://mehmetabak.hashnode.dev/)
-    - ![Hashnode Icon](https://www.svgrepo.com/show/330611/hashnode.svg)
+    - [![Hashnode Icon](https://www.svgrepo.com/show/330611/hashnode.svg)](https://mehmetabak.hashnode.dev/)
  
  🐦 [**Twitter Profile**](https://twitter.com/Mehmetn45363159)
-    - ![Twitter Icon](https://www.svgrepo.com/show/513008/twitter-154.svg)
+    - [![Twitter Icon](https://www.svgrepo.com/show/513008/twitter-154.svg)](https://twitter.com/Mehmetn45363159)
  
  🔗 [**LinkedIn Profile**](https://www.linkedin.com/in/mehmet-a-12a716226/)
-    - ![LinkedIn Icon](https://www.svgrepo.com/show/521725/linkedin.svg)
+    - [![LinkedIn Icon](https://www.svgrepo.com/show/521725/linkedin.svg)](https://www.linkedin.com/in/mehmet-a-12a716226/)
+ 
  `.replace(/([_*[\]()~>#+=|{}.!-])/g, '\\$1'))
 });
 
