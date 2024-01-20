@@ -50,10 +50,8 @@ bot.command('sites', async (ctx) => {
  
  🔗 [**LinkedIn Profile**](https://www.linkedin.com/in/mehmet-a-12a716226/)
     - ![LinkedIn Icon](https://www.svgrepo.com/show/521725/linkedin.svg)
- `.replace("_", "\\_")
- .replace("*", "\\*")
- .replace("[", "\\[")
- .replace("`", "\\`"))
+ `).replace(/(\[[^\][]*]\(http[^()]*\))|[_*[\]()~>#+=|{}.!-]/gi,
+ (x,y) => y ? y : '\\' + x)
 });
 
 //Experimental
