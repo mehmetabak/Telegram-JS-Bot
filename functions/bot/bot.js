@@ -52,7 +52,12 @@ bot.command('sites', async (ctx) => {
   - [![LinkedIn Icon](https://www.svgrepo.com/show/521725/linkedin.svg)](https://www.linkedin.com/in/mehmet-a-12a716226/)
 `;
 
-  const escapedText = markdownText.replace(/([-_*[\]()~>#+=|{}.!])/g, '\\$1');
+  // Escape special characters
+  const escapedText = markdownText
+      .replace(/([_*[\]()])/g, '\\$1')
+      .replace(/~/g, '\\~')
+      .replace(/>(?=\d)/g, '\\>')
+      .replace(/[-.+!]/g, '\\$&');
 
   await ctx.replyWithMarkdownV2(escapedText, { disable_web_page_preview: true });
 });
