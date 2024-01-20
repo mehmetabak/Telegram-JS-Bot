@@ -51,7 +51,7 @@ bot.command('sites', async (ctx) => {
  🔗 [**LinkedIn Profile**](https://www.linkedin.com/in/mehmet-a-12a716226/)
     - [![LinkedIn Icon](https://www.svgrepo.com/show/521725/linkedin.svg)](https://www.linkedin.com/in/mehmet-a-12a716226/)
  
- `.replace(/([_*[\]()~>#+=|{}.!-])/g, '\\$1'))
+ `.replace(/([*_[\]()~>#+=|{}.!-])/g, '\\$1'))
 });
 
 //Experimental
