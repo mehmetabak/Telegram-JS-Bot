@@ -19,7 +19,7 @@ bot.help(async (ctx) => {
     ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs, \n \n·Send /sites to receive my all websites.');
 });
 
-bot.command('getpdf', async (ctx) => {
+bot.command('sites', async (ctx) => {
     await ctx.replyWithMarkdownV2(`
  📌 [**Personal Blog**](https://m0s.vercel.app)
     - ![Blog Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
