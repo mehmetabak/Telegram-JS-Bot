@@ -20,47 +20,41 @@ bot.help(async (ctx) => {
 });
 
 bot.command('sites', async (ctx) => {
-  const markdownText = `
-📌 [**Personal Blog**](https://m0s.vercel.app)
-  - [![Blog Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)](https://m0s.vercel.app)
+  const htmlText = `
+📌 <a href="https://m0s.vercel.app"><b>Personal Blog</b></a>
+  - <a href="https://m0s.vercel.app"><img src="https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png"></a>
 
-📄 [**CV**](https://cv-ma.vercel.app)
-  - [![File Icon](https://www.svgrepo.com/show/112988/cv-file-interface-symbol.svg)](https://cv-ma.vercel.app)
+📄 <a href="https://cv-ma.vercel.app"><b>CV</b></a>
+  - <a href="https://cv-ma.vercel.app"><img src="https://www.svgrepo.com/show/112988/cv-file-interface-symbol.svg"></a>
 
-🚀 [**Portfolio**](https://mehmetabak.is-a.dev)
-  - [![Code Branch Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)](https://mehmetabak.is-a.dev)
+🚀 <a href="https://mehmetabak.is-a.dev"><b>Portfolio</b></a>
+  - <a href="https://mehmetabak.is-a.dev"><img src="https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png"></a>
 
-🏢 [**Research Projects**](https://arastir.super.site)
-  - [![Building Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)](https://arastir.super.site)
+🏢 <a href="https://arastir.super.site"><b>Research Projects</b></a>
+  - <a href="https://arastir.super.site"><img src="https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png"></a>
 
-📂 [**GitHub Profile**](https://github.com/memoli0)
-  - [![GitHub Icon](https://www.svgrepo.com/show/512317/github-142.svg)](https://github.com/memoli0)
+📂 <a href="https://github.com/memoli0"><b>GitHub Profile</b></a>
+  - <a href="https://github.com/memoli0"><img src="https://www.svgrepo.com/show/512317/github-142.svg"></a>
 
-📝 [**Medium Articles**](https://medium.com/@mehmetnurAbak)
-  - [![Medium Icon](https://www.svgrepo.com/show/521749/medium.svg)](https://medium.com/@mehmetnurAbak)
+📝 <a href="https://medium.com/@mehmetnurAbak"><b>Medium Articles</b></a>
+  - <a href="https://medium.com/@mehmetnurAbak"><img src="https://www.svgrepo.com/show/521749/medium.svg"></a>
 
-💻 [**Dev.to Profile**](https://dev.to/memoli0)
-  - [![Dev.to Icon](https://www.svgrepo.com/show/349334/dev-to.svg)](https://dev.to/memoli0)
+💻 <a href="https://dev.to/memoli0"><b>Dev.to Profile</b></a>
+  - <a href="https://dev.to/memoli0"><img src="https://www.svgrepo.com/show/349334/dev-to.svg"></a>
 
-🌐 [**Hashnode Blog**](https://mehmetabak.hashnode.dev/)
-  - [![Hashnode Icon](https://www.svgrepo.com/show/330611/hashnode.svg)](https://mehmetabak.hashnode.dev/)
+🌐 <a href="https://mehmetabak.hashnode.dev/"><b>Hashnode Blog</b></a>
+  - <a href="https://mehmetabak.hashnode.dev/"><img src="https://www.svgrepo.com/show/330611/hashnode.svg"></a>
 
-🐦 [**Twitter Profile**](https://twitter.com/Mehmetn45363159)
-  - [![Twitter Icon](https://www.svgrepo.com/show/513008/twitter-154.svg)](https://twitter.com/Mehmetn45363159)
+🐦 <a href="https://twitter.com/Mehmetn45363159"><b>Twitter Profile</b></a>
+  - <a href="https://twitter.com/Mehmetn45363159"><img src="https://www.svgrepo.com/show/513008/twitter-154.svg"></a>
 
-🔗 [**LinkedIn Profile**](https://www.linkedin.com/in/mehmet-a-12a716226/)
-  - [![LinkedIn Icon](https://www.svgrepo.com/show/521725/linkedin.svg)](https://www.linkedin.com/in/mehmet-a-12a716226/)
+🔗 <a href="https://www.linkedin.com/in/mehmet-a-12a716226/"><b>LinkedIn Profile</b></a>
+  - <a href="https://www.linkedin.com/in/mehmet-a-12a716226/"><img src="https://www.svgrepo.com/show/521725/linkedin.svg"></a>
 `;
 
-  // Escape special characters
-  const escapedText = markdownText
-      .replace(/([_*[\]()])/g, '\\$1')
-      .replace(/~/g, '\\~')
-      .replace(/>(?=\d)/g, '\\>')
-      .replace(/[-.+!]/g, '\\$&');
-
-  await ctx.replyWithMarkdownV2(escapedText, { disable_web_page_preview: true });
+  await ctx.replyWithHTML(htmlText, { disable_web_page_preview: true });
 });
+
 
 //Experimental
 
