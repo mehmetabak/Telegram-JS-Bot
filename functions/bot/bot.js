@@ -3,24 +3,7 @@ const axios = require('axios');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/isleronline-{}.pdf";
-
-bot.start(async (ctx) => {
-    console.log("Received /start command");
-    try {
-        await ctx.reply("Hi " + ctx.from.first_name + ", you can get all commands with /help command");
-    } catch (e) {
-        console.error("error in start action:", e);
-        await ctx.reply("Error occured");
-    }
-})
-
-bot.help(async (ctx) => {
-    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs, \n \n·Send /sites to receive my all websites.');
-});
-
-bot.command('sites', async (ctx) => {
-  const htmlText = `
+const htmlText = `
 📌 <a href="https://m0s.vercel.app"><b>Personal Blog</b></a>
 
 📄 <a href="https://cv-ma.vercel.app"><b>CV</b></a>
@@ -42,6 +25,23 @@ bot.command('sites', async (ctx) => {
 🔗 <a href="https://www.linkedin.com/in/mehmet-a-12a716226/"><b>LinkedIn Profile</b></a>
 `;
 
+const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/isleronline-{}.pdf";
+
+bot.start(async (ctx) => {
+    console.log("Received /start command");
+    try {
+        await ctx.reply("Hi " + ctx.from.first_name + ", you can get all commands with /help command");
+    } catch (e) {
+        console.error("error in start action:", e);
+        await ctx.reply("Error occured");
+    }
+})
+
+bot.help(async (ctx) => {
+    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs, \n \n·Send /sites to receive my all websites.');
+});
+
+bot.command('sites', async (ctx) => {
   await ctx.replyWithHTML(htmlText, { disable_web_page_preview: true });
 });
 
