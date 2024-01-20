@@ -37,7 +37,7 @@ bot.command('sites', async (ctx) => {
 
 🌐 <a href="https://mehmetabak.hashnode.dev/"><b>Hashnode Blog</b></a>
 
-🐦 <a href="https://twitter.com/Mehmetn45363159"><b>Twitter Profile</b></a>
+𝕏  <a href="https://twitter.com/Mehmetn45363159"><b>Twitter Profile</b></a>
 
 🔗 <a href="https://www.linkedin.com/in/mehmet-a-12a716226/"><b>LinkedIn Profile</b></a>
 `;
