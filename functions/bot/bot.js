@@ -45,26 +45,6 @@ bot.command('sites', async (ctx) => {
   await ctx.replyWithHTML(htmlText, { disable_web_page_preview: true });
 });
 
-bot.command('sendMarkdown', async (ctx) => {
-    const mT = "\\`print\\(\"Hello, World\\!\"\\)\\`"
-
-    const markdownText = `
-      *Italic Text*
-      _Italic Text_
-      [Link](https://example.com)
-      \`Inline Code\`
-      \`\`\`
-      Code Block
-      \`\`\`
-      **Literal Asterisks**
-    `;
-  
-    const escapedText = markdownText.replace(/[_*[\]()~`>#\+\-=|{}.!]/g, '\\$&'); 
-
-    await ctx.replyWithMarkdownV2(mT);
-});
-
-
 //Experimental
 
 // Handle /getpdf command
