@@ -46,6 +46,8 @@ bot.command('sites', async (ctx) => {
 });
 
 bot.command('sendMarkdown', async (ctx) => {
+    const mT = "\\`print(\"Hello, World!\")\\`"
+
     const markdownText = `
       *Italic Text*
       _Italic Text_
@@ -59,7 +61,7 @@ bot.command('sendMarkdown', async (ctx) => {
   
     const escapedText = markdownText.replace(/[_*[\]()~`>#\+\-=|{}.!]/g, '\\$&'); 
 
-    await ctx.replyWithMarkdownV2(escapedText);
+    await ctx.replyWithMarkdownV2(mT);
 });
 
 
