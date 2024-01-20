@@ -67,8 +67,8 @@ bot.command('sendMarkdown', async (ctx) => {
       **Literal Asterisks**
     `;
   
-    const escapedText = markdownText.replace(/([_*[\]()~`>#+=|{}.!-])/g, '\\$1');
-    
+    const escapedText = markdownText.replace(/[_*[\]()~`>#\+\-=|{}.!]/g, '\\$&'); 
+
     await ctx.replyWithMarkdownV2(escapedText, { disable_web_page_preview: true });
 });
 
