@@ -22,34 +22,34 @@ bot.help(async (ctx) => {
 bot.command('sites', async (ctx) => {
   const htmlText = `
 📌 <a href="https://m0s.vercel.app"><b>Personal Blog</b></a>
-  - <a href="https://m0s.vercel.app"><img src="https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png"></a>
+  - [Blog Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
 
 📄 <a href="https://cv-ma.vercel.app"><b>CV</b></a>
-  - <a href="https://cv-ma.vercel.app"><img src="https://www.svgrepo.com/show/112988/cv-file-interface-symbol.svg"></a>
+  - [File Icon](https://www.svgrepo.com/show/112988/cv-file-interface-symbol.svg)
 
 🚀 <a href="https://mehmetabak.is-a.dev"><b>Portfolio</b></a>
-  - <a href="https://mehmetabak.is-a.dev"><img src="https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png"></a>
+  - [Code Branch Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
 
 🏢 <a href="https://arastir.super.site"><b>Research Projects</b></a>
-  - <a href="https://arastir.super.site"><img src="https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png"></a>
+  - [Building Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
 
 📂 <a href="https://github.com/memoli0"><b>GitHub Profile</b></a>
-  - <a href="https://github.com/memoli0"><img src="https://www.svgrepo.com/show/512317/github-142.svg"></a>
+  - [GitHub Icon](https://www.svgrepo.com/show/512317/github-142.svg)
 
 📝 <a href="https://medium.com/@mehmetnurAbak"><b>Medium Articles</b></a>
-  - <a href="https://medium.com/@mehmetnurAbak"><img src="https://www.svgrepo.com/show/521749/medium.svg"></a>
+  - [Medium Icon](https://www.svgrepo.com/show/521749/medium.svg)
 
 💻 <a href="https://dev.to/memoli0"><b>Dev.to Profile</b></a>
-  - <a href="https://dev.to/memoli0"><img src="https://www.svgrepo.com/show/349334/dev-to.svg"></a>
+  - [Dev.to Icon](https://www.svgrepo.com/show/349334/dev-to.svg)
 
 🌐 <a href="https://mehmetabak.hashnode.dev/"><b>Hashnode Blog</b></a>
-  - <a href="https://mehmetabak.hashnode.dev/"><img src="https://www.svgrepo.com/show/330611/hashnode.svg"></a>
+  - [Hashnode Icon](https://www.svgrepo.com/show/330611/hashnode.svg)
 
 🐦 <a href="https://twitter.com/Mehmetn45363159"><b>Twitter Profile</b></a>
-  - <a href="https://twitter.com/Mehmetn45363159"><img src="https://www.svgrepo.com/show/513008/twitter-154.svg"></a>
+  - [Twitter Icon](https://www.svgrepo.com/show/513008/twitter-154.svg)
 
 🔗 <a href="https://www.linkedin.com/in/mehmet-a-12a716226/"><b>LinkedIn Profile</b></a>
-  - <a href="https://www.linkedin.com/in/mehmet-a-12a716226/"><img src="https://www.svgrepo.com/show/521725/linkedin.svg"></a>
+  - [LinkedIn Icon](https://www.svgrepo.com/show/521725/linkedin.svg)
 `;
 
   await ctx.replyWithHTML(htmlText, { disable_web_page_preview: true });
