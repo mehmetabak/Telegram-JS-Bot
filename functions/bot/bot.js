@@ -46,7 +46,7 @@ bot.command('sites', async (ctx) => {
 });
 
 bot.command('sendMarkdown', async (ctx) => {
-    const mT = "\\`print(\"Hello, World!\")\\`"
+    const mT = "\\`print\\(\"Hello, World\\!\"\\)\\`"
 
     const markdownText = `
       *Italic Text*
