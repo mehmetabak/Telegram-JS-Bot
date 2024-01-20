@@ -16,7 +16,41 @@ bot.start(async (ctx) => {
 })
 
 bot.help(async (ctx) => {
-    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs.');
+    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs, \n \n·Send /sites to receive my all websites.');
+});
+
+bot.command('getpdf', async (ctx) => {
+    await ctx.replyWithMarkdownV2(`
+ 📌 [**Personal Blog**](https://m0s.vercel.app)
+    - ![Blog Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
+ 
+ 📄 [**CV**](https://cv-ma.vercel.app)
+    - ![File Icon](https://www.svgrepo.com/show/112988/cv-file-interface-symbol.svg)
+ 
+ 🚀 [**Portfolio**](https://mehmetabak.is-a.dev)
+    - ![Code Branch Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
+ 
+ 🏢 [**Research Projects**](https://arastir.super.site)
+    - ![Building Icon](https://img.samsungapps.com/productNew/000006342365/IconImage_20220606075816050_NEW_WAP_ICON_512_512.png)
+ 
+ 📂 [**GitHub Profile**](https://github.com/memoli0)
+    - ![GitHub Icon](https://www.svgrepo.com/show/512317/github-142.svg)
+ 
+ 📝 [**Medium Articles**](https://medium.com/@mehmetnurAbak)
+    - ![Medium Icon](https://www.svgrepo.com/show/521749/medium.svg)
+ 
+ 💻 [**Dev.to Profile**](https://dev.to/memoli0)
+    - ![Dev.to Icon](https://www.svgrepo.com/show/349334/dev-to.svg)
+ 
+ 🌐 [**Hashnode Blog**](https://mehmetabak.hashnode.dev/)
+    - ![Hashnode Icon](https://www.svgrepo.com/show/330611/hashnode.svg)
+ 
+ 🐦 [**Twitter Profile**](https://twitter.com/Mehmetn45363159)
+    - ![Twitter Icon](https://www.svgrepo.com/show/513008/twitter-154.svg)
+ 
+ 🔗 [**LinkedIn Profile**](https://www.linkedin.com/in/mehmet-a-12a716226/)
+    - ![LinkedIn Icon](https://www.svgrepo.com/show/521725/linkedin.svg)
+ `)
 });
 
 //Experimental
