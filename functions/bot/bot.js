@@ -38,7 +38,7 @@ bot.start(async (ctx) => {
 })
 
 bot.help(async (ctx) => {
-    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs, \n \n·Send /sites to receive my all websites.');
+    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs, \n \n·Send /t3Check to check if the t3 site is working , \n \n·Send /sites to receive my all websites.');
 });
 
 bot.command('sites', async (ctx) => {
@@ -46,6 +46,51 @@ bot.command('sites', async (ctx) => {
 });
 
 //Experimental
+
+bot.command('t3Check', async (ctx) => {
+  try {
+      const commandParams = ctx.message.text.split(' ').slice(1);
+      const url = 'https://t3kys.com/';
+
+      // Validate command parameters
+      const durationInMinutes = parseInt(commandParams[0]);
+      if (isNaN(durationInMinutes) || durationInMinutes <= 0) {
+          return ctx.reply('Please provide a valid positive number for the duration in minutes.');
+      }
+
+      // Initialize variables
+      let isWebsiteWorking = false;
+      let intervalId;
+
+      // Check website status asynchronously
+      const checkWebsiteStatus = async () => {
+          try {
+              const response = await axios.get(url);
+              if (response.status === 200) {
+                  isWebsiteWorking = true;
+                  clearInterval(intervalId); // Stop further checks
+                  ctx.reply('The website is working.'); // Send message to user
+              }
+          } catch (error) {
+              // Ignore errors (e.g., 502, 504)
+          }
+      };
+
+      // Start checking website status every minute
+      intervalId = setInterval(checkWebsiteStatus, 60 * 1000); // 60 seconds = 1 minute
+
+      // Stop checking website status after specified duration
+      setTimeout(() => {
+          clearInterval(intervalId);
+          if (!isWebsiteWorking) {
+              ctx.reply('The website is not working.');
+          }
+      }, durationInMinutes * 60 * 1000); // Convert minutes to milliseconds
+  } catch (error) {
+      console.error('An error occurred:', error.message);
+      ctx.reply('An error occurred while checking the website status.');
+  }
+});
 
 // Handle /getpdf command
 bot.command('getpdf', async (ctx) => {
