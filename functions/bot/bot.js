@@ -55,14 +55,7 @@ bot.command('v0', async (ctx) => {
 
 bot.command('t3Check', async (ctx) => {
     try {
-        const commandParams = ctx.message.text.split(' ').slice(1);
         const url = 'https://t3kys.com/';
-
-        // Validate command parameters
-        const durationInMinutes = parseInt(commandParams[0]);
-        if (isNaN(durationInMinutes) || durationInMinutes <= 0) {
-            return ctx.reply('Please provide a valid positive number for the duration in minutes.');
-        }
 
         // Function to check website status asynchronously
         const checkWebsiteStatus = async () => {
@@ -72,6 +65,7 @@ bot.command('t3Check', async (ctx) => {
                 // Check for successful HTTP status codes
                 if (response.status >= 200 && response.status < 300) {
                     ctx.reply('The website is working.'); // Send message to user
+                    return true; // Website is working
                 } else {
                     // Send error message to user for non-successful status codes
                     ctx.reply(`Failed to check website status. Status code: ${response.status}`);
@@ -80,13 +74,18 @@ bot.command('t3Check', async (ctx) => {
                 // Send error message to user for network or other errors
                 ctx.reply(`Failed to check website status: ${error.message}`);
             }
+
+            return false; // Website is not working
         };
 
-        // Function to recursively check website status every minute
-        const checkWebsiteRecursive = async () => {
+        // Function to recursively check website status with exponential backoff
+        const checkWebsiteRecursive = async (retryDelay = 1000, maxRetryDelay = 30000) => {
             try {
-                await checkWebsiteStatus();
-                setTimeout(checkWebsiteRecursive, 60 * 1000); // Wait for 1 minute before next check
+                const isWorking = await checkWebsiteStatus();
+                if (!isWorking) {
+                    const nextRetryDelay = Math.min(retryDelay * 2, maxRetryDelay);
+                    setTimeout(() => checkWebsiteRecursive(nextRetryDelay), nextRetryDelay);
+                }
             } catch (error) {
                 console.error('Error during website check:', error.message);
             }
@@ -94,12 +93,6 @@ bot.command('t3Check', async (ctx) => {
 
         // Start checking website status
         checkWebsiteRecursive();
-
-        // Stop checking website status after specified duration
-        setTimeout(() => {
-            console.log('Website check stopped.');
-            ctx.reply('Website check completed.');
-        }, durationInMinutes * 60 * 1000); // Convert minutes to milliseconds
     } catch (error) {
         console.error('An error occurred:', error.message);
         ctx.reply('An error occurred while checking the website status.');
