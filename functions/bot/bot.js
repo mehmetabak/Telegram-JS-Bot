@@ -71,19 +71,23 @@ bot.command('t3Check', async (ctx) => {
       // Check website status asynchronously
       const checkWebsiteStatus = async () => {
           try {
+              console.log('Checking website status...');
               const response = await axios.get(url);
 
               // Check for successful HTTP status codes
               if (response.status >= 200 && response.status < 300) {
                   isWebsiteWorking = true;
                   clearInterval(intervalId); // Stop further checks
+                  console.log('Website is working.');
                   ctx.reply('The website is working.'); // Send message to user
               } else {
                   // Send error message to user for non-successful status codes
+                  console.log(`Failed to check website status. Status code: ${response.status}`);
                   ctx.reply(`Failed to check website status. Status code: ${response.status}`);
               }
           } catch (error) {
               // Send error message to user for network or other errors
+              console.error(`Failed to check website status: ${error.message}`);
               ctx.reply(`Failed to check website status: ${error.message}`);
           }
       };
@@ -101,6 +105,7 @@ bot.command('t3Check', async (ctx) => {
       setTimeout(() => {
           clearInterval(intervalId);
           if (!isWebsiteWorking) {
+              console.log('Website is not working.');
               ctx.reply('The website is not working.');
           }
       }, durationInMinutes * 60 * 1000); // Convert minutes to milliseconds
