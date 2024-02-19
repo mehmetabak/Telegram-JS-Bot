@@ -47,7 +47,7 @@ bot.command('sites', async (ctx) => {
   await ctx.replyWithHTML(htmlText, { disable_web_page_preview: true });
 });
 
-bot.command('sites', async (ctx) => {
+bot.command('v0', async (ctx) => {
   await ctx.reply('Bots version is: ' + version);
 });
 
