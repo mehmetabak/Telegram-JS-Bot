@@ -56,7 +56,7 @@ bot.command('v0', async (ctx) => {
 bot.command('t3Check', async (ctx) => {
   try {
       const commandParams = ctx.message.text.split(' ').slice(1);
-      const url = 'https://google.com/';
+      const url = 'https://t3kys.com/';
 
       // Validate command parameters
       const durationInMinutes = parseInt(commandParams[0]);
@@ -65,52 +65,26 @@ bot.command('t3Check', async (ctx) => {
       }
 
       // Initialize variables
-      let isWebsiteWorking = false;
+      let intervalId;
 
       // Function to check website status asynchronously
       const checkWebsiteStatus = async () => {
           try {
               console.log('Checking website status...');
               const response = await axios.get(url);
-
-              // Check for successful HTTP status codes
-              if (response.status >= 200 && response.status < 300) {
-                  isWebsiteWorking = true;
-                  console.log('Website is working.');
-                  ctx.reply('The website is working.'); // Send message to user
-              } else {
-                  // Send error message to user for non-successful status codes
-                  console.log(`Failed to check website status. Status code: ${response.status}`);
-                  ctx.reply(`Failed to check website status. Status code: ${response.status}`);
-              }
+              console.log('Website response:', response.status);
           } catch (error) {
-              // Send error message to user for network or other errors
-              console.error(`Failed to check website status: ${error.message}`);
-              ctx.reply(`Failed to check website status: ${error.message}`);
+              console.error('Failed to check website status:', error.message);
           }
       };
 
-      // Function to recursively check website status every minute
-      const checkWebsiteRecursive = async () => {
-          try {
-              await checkWebsiteStatus();
-              if (!isWebsiteWorking) {
-                  setTimeout(checkWebsiteRecursive, 60 * 1000); // Wait for 1 minute before next check
-              }
-          } catch (error) {
-              console.error('Error during website check:', error.message);
-          }
-      };
-
-      // Start checking website status
-      checkWebsiteRecursive();
+      // Start checking website status every minute
+      intervalId = setInterval(checkWebsiteStatus, 60 * 1000); // 60 seconds = 1 minute
 
       // Stop checking website status after specified duration
       setTimeout(() => {
-          if (!isWebsiteWorking) {
-              console.log('Website is not working.');
-              ctx.reply('The website is not working.');
-          }
+          clearInterval(intervalId);
+          console.log('Website check stopped.');
       }, durationInMinutes * 60 * 1000); // Convert minutes to milliseconds
   } catch (error) {
       console.error('An error occurred:', error.message);
