@@ -66,9 +66,8 @@ bot.command('t3Check', async (ctx) => {
 
       // Initialize variables
       let isWebsiteWorking = false;
-      let intervalId;
 
-      // Check website status asynchronously
+      // Function to check website status asynchronously
       const checkWebsiteStatus = async () => {
           try {
               console.log('Checking website status...');
@@ -77,7 +76,6 @@ bot.command('t3Check', async (ctx) => {
               // Check for successful HTTP status codes
               if (response.status >= 200 && response.status < 300) {
                   isWebsiteWorking = true;
-                  clearInterval(intervalId); // Stop further checks
                   console.log('Website is working.');
                   ctx.reply('The website is working.'); // Send message to user
               } else {
@@ -92,18 +90,23 @@ bot.command('t3Check', async (ctx) => {
           }
       };
 
-      // Start checking website status every minute
-      intervalId = setInterval(async () => {
+      // Function to recursively check website status every minute
+      const checkWebsiteRecursive = async () => {
           try {
               await checkWebsiteStatus();
+              if (!isWebsiteWorking) {
+                  setTimeout(checkWebsiteRecursive, 60 * 1000); // Wait for 1 minute before next check
+              }
           } catch (error) {
               console.error('Error during website check:', error.message);
           }
-      }, 60 * 1000); // 60 seconds = 1 minute
+      };
+
+      // Start checking website status
+      checkWebsiteRecursive();
 
       // Stop checking website status after specified duration
       setTimeout(() => {
-          clearInterval(intervalId);
           if (!isWebsiteWorking) {
               console.log('Website is not working.');
               ctx.reply('The website is not working.');
