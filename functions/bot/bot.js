@@ -56,7 +56,7 @@ bot.command('v0', async (ctx) => {
 bot.command('t3Check', async (ctx) => {
   try {
       const commandParams = ctx.message.text.split(' ').slice(1);
-      const url = 'https://t3kys.com/';
+      const url = 'https://google.com/';
 
       // Validate command parameters
       const durationInMinutes = parseInt(commandParams[0]);
