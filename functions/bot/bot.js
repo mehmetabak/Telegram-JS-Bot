@@ -48,7 +48,7 @@ bot.command('sites', async (ctx) => {
 });
 
 bot.command('v0', async (ctx) => {
-  await ctx.reply('Bots version is: ' + version);
+  await ctx.reply('Bot version is: ' + version);
 });
 
 //Experimental
