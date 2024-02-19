@@ -89,7 +89,13 @@ bot.command('t3Check', async (ctx) => {
       };
 
       // Start checking website status every minute
-      intervalId = setInterval(checkWebsiteStatus, 60 * 1000); // 60 seconds = 1 minute
+      intervalId = setInterval(async () => {
+          try {
+              await checkWebsiteStatus();
+          } catch (error) {
+              console.error('Error during website check:', error.message);
+          }
+      }, 60 * 1000); // 60 seconds = 1 minute
 
       // Stop checking website status after specified duration
       setTimeout(() => {
