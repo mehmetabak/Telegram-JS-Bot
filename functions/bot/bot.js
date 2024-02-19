@@ -53,6 +53,7 @@ bot.command('v0', async (ctx) => {
 
 //Experimental
 
+//This stuppid code isn't working!
 bot.command('t3Check', async (ctx) => {
     try {
         const url = 'https://t3kys.com/';
