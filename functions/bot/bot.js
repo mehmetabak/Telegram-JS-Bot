@@ -3,6 +3,8 @@ const axios = require('axios');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
+const version = 'v0.11'
+
 const htmlText = `
 📌 <a href="https://m0s.vercel.app"><b>Personal Blog</b></a>
 
@@ -38,11 +40,15 @@ bot.start(async (ctx) => {
 })
 
 bot.help(async (ctx) => {
-    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs, \n \n·Send /t3Check to check if the t3 site is working , \n \n·Send /sites to receive my all websites.');
+    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs, \n \n·Send /t3Check to check if the t3 site is working , \n \n·Send /v0 to get version of bot , \n \n·Send /sites to receive my all websites.');
 });
 
 bot.command('sites', async (ctx) => {
   await ctx.replyWithHTML(htmlText, { disable_web_page_preview: true });
+});
+
+bot.command('sites', async (ctx) => {
+  await ctx.reply('Bots version is: ' + version);
 });
 
 //Experimental
