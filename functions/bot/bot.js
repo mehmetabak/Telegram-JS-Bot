@@ -57,10 +57,8 @@ bot.command('v0', async (ctx) => {
 
 bot.command('posts', async (ctx) => {
   try {
-      // Make a request to the Telegra.ph API to retrieve your posts
       const response = await axios.get(`https://api.telegra.ph/getPageList?access_token=${process.env.BOT_TELEGRAPH}`);
       
-      // Extract post titles and URLs from the response
       const posts = response.data.result.pages.map(page => {
           return {
               title: page.title,
@@ -68,13 +66,11 @@ bot.command('posts', async (ctx) => {
           };
       });
       
-      // Format the posts into a message
       let message = 'Here are your posts:\n\n';
       posts.forEach(post => {
           message += `<a href="${post.url}">${post.title}</a>\n`;
       });
       
-      // Send the message to the user
       ctx.replyWithHTML(message);
   } catch (error) {
       console.error('Error retrieving posts:', error.message);
