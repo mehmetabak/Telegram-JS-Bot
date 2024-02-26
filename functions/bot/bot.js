@@ -47,6 +47,10 @@ bot.command('sites', async (ctx) => {
   await ctx.replyWithHTML(htmlText, { disable_web_page_preview: true });
 });
 
+bot.command('who', async (ctx) => {
+  await ctx.replyWithHTML('Who am I?');
+});
+
 bot.command('v0', async (ctx) => {
   await ctx.reply('Bot version is: ' + version);
 });
