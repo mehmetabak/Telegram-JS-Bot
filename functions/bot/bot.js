@@ -68,7 +68,7 @@ bot.command('posts', async (ctx) => {
       
       let message = 'Here are your posts:\n\n';
       posts.forEach(post => {
-          message += `<a href="${post.url}">${post.title}</a>\n`;
+          message += `<a href="${post.url}">•${post.title}</a>\n\n`;
       });
       
       ctx.replyWithHTML(message);
