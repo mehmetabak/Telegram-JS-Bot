@@ -55,6 +55,33 @@ bot.command('v0', async (ctx) => {
   await ctx.reply('Bot version is: ' + version);
 });
 
+bot.command('posts', async (ctx) => {
+  try {
+      // Make a request to the Telegra.ph API to retrieve your posts
+      const response = await axios.get('https://api.telegra.ph/getPageList?access_token=YOUR_ACCESS_TOKEN');
+      
+      // Extract post titles and URLs from the response
+      const posts = response.data.result.pages.map(page => {
+          return {
+              title: page.title,
+              url: `https://telegra.ph/${page.path}`
+          };
+      });
+      
+      // Format the posts into a message
+      let message = 'Here are your posts:\n\n';
+      posts.forEach(post => {
+          message += `<a href="${post.url}">${post.title}</a>\n`;
+      });
+      
+      // Send the message to the user
+      ctx.replyWithHTML(message);
+  } catch (error) {
+      console.error('Error retrieving posts:', error.message);
+      ctx.reply('An error occurred while retrieving your posts.');
+  }
+});
+
 //Experimental
 
 //This stuppid code isn't working!
