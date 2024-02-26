@@ -58,7 +58,7 @@ bot.command('v0', async (ctx) => {
 bot.command('posts', async (ctx) => {
   try {
       // Make a request to the Telegra.ph API to retrieve your posts
-      const response = await axios.get('https://api.telegra.ph/getPageList?access_token=YOUR_ACCESS_TOKEN');
+      const response = await axios.get(`https://api.telegra.ph/getPageList?access_token=${process.env.BOT_TELEGRAPH}`);
       
       // Extract post titles and URLs from the response
       const posts = response.data.result.pages.map(page => {
