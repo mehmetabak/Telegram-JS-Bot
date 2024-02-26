@@ -40,7 +40,7 @@ bot.start(async (ctx) => {
 })
 
 bot.help(async (ctx) => {
-  ctx.replyWithHTML(`<b>COMMANDS v1.0</b>\n\n<b>• Send /who to know who I am,</b>\n\n<b>• Send /v0 to get the version of the bot,</b>\n\n<b>• Send /sites to receive all my websites,</b>\n\n<b>COMMANDS v2.0-beta</b>\n\n<b>• Send /getpdf to receive the PDFs,</b>\n\n<b>• Send /t3Check to check if the t3 site is working.</b>`);
+  ctx.replyWithHTML(`<b>COMMANDS v1.0</b>\n\n<b>• Send /who to know who I am,</b>\n\n<b>• Send /posts to get all my posts,</b>\n\n<b>• Send /v0 to get the version of the bot,</b>\n\n<b>• Send /sites to receive all my websites,</b>\n\n<b>COMMANDS v2.0-beta</b>\n\n<b>• Send /getpdf to receive the PDFs,</b>\n\n<b>• Send /t3Check to check if the t3 site is working.</b>`);
 });
 
 bot.command('sites', async (ctx) => {
@@ -66,7 +66,7 @@ bot.command('posts', async (ctx) => {
           };
       });
       
-      let message = 'Here are your posts:\n\n';
+      let message = 'Here are my posts:\n\n';
       posts.forEach(post => {
           message += `<a href="${post.url}">•${post.title}</a>\n\n`;
       });
