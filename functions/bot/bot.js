@@ -40,7 +40,7 @@ bot.start(async (ctx) => {
 })
 
 bot.help(async (ctx) => {
-  ctx.replyWithHTML(`<b>• Send /who to know who I am,</b>\n\n<b>• Send /v0 to get the version of the bot,</b>\n\n<b>• Send /sites to receive all my websites,</b>\n\n<b>bold *Ω / OMEGA*</b>\n\n<b>• Send /getpdf to receive the PDFs,</b>\n\n<b>• Send /t3Check to check if the t3 site is working.</b>`);
+  ctx.replyWithHTML(`<b>• Send /who to know who I am,</b>\n\n<b>• Send /v0 to get the version of the bot,</b>\n\n<b>• Send /sites to receive all my websites,</b>\n\n<b>Ω / OMEGA</b>\n\n<b>• Send /getpdf to receive the PDFs,</b>\n\n<b>• Send /t3Check to check if the t3 site is working.</b>`);
 });
 
 bot.command('sites', async (ctx) => {
