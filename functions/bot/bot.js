@@ -40,7 +40,7 @@ bot.start(async (ctx) => {
 })
 
 bot.help(async (ctx) => {
-    ctx.reply('·Send /start to receive a greeting, \n \n·Send /getpdf to receive the pdfs, \n \n·Send /t3Check to check if the t3 site is working , \n \n·Send /v0 to get version of bot , \n \n·Send /sites to receive my all websites.');
+    ctx.reply('·Send /who to know who I am, \n \n·Send /v0 to get version of bot, \n \n·Send /sites to receive my all websites, \n \n**Ω / OMEGA** \n \n·Send /getpdf to receive the pdfs, \n \n·Send /t3Check to check if the t3 site is working.');
 });
 
 bot.command('sites', async (ctx) => {
