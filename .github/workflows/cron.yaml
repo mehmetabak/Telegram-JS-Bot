@@ -1,0 +1,11 @@
+name: auto-update-cron
+on:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  build:
+    name: Trigger Site Rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Netlify Hook
+        run: curl -X POST -d {} https://api.netlify.com/build_hooks/66080921b18ed8e7c160921b
