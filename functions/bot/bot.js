@@ -206,6 +206,9 @@ bot.action(/(approve|reject)_\d+/, (ctx) => {
   }
 });
 
+bot.on('text', (ctx) => {
+  ctx.reply("Sorry, that command is not valid. Send /help to see available commands.");
+});
 
 //AWS
 
