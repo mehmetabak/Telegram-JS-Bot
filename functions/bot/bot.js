@@ -206,7 +206,7 @@ bot.action(/(approve|reject)_\d+/, (ctx) => {
   }
 });
 
-// If COmmand isn't valid
+// If Command isn't valid
 bot.on('text', (ctx) => {
   ctx.reply("Sorry, that command is not valid. Send /help to see available commands.");
 });
