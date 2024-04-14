@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-const version = 'v0.11'
+const version = 'v0.2.1'
 
 const htmlText = `
 📌 <a href="https://m0s.vercel.app"><b>Personal Blog</b></a>
