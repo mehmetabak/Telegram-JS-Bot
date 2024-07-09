@@ -80,10 +80,12 @@ This repository contains a Telegram bot implemented in JavaScript, deployed usin
 - If deployment fails, check the deployment logs in Netlify for errors.
 - Ensure environment variables are correctly set in Netlify and triggers a redeploy if updated.
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Contact Me
+Have questions, suggestions, or want to collaborate? Feel free to reach out to me at [mehmetnurabak0@gmail.com](mailto:mehmetnurabak0@gmail.com). We'd love to hear from you!
+
+## License
+This project is licensed under the [MIT License](LICENSE).
