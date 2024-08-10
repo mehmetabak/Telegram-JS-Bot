@@ -24,7 +24,7 @@ const htmlText = `
 
  𝕏  <a href="https://x.com/mehmet_m0s"><b>X Profile</b></a>
 
-🔗 <a href="https://www.linkedin.com/in/mehmet-a-12a716226/"><b>LinkedIn Profile</b></a>
+🔗 <a href="https://www.linkedin.com/in/mehmet-abak"><b>LinkedIn Profile</b></a>
 `;
 
 const BASE_URL = "https://yeni.isleronline.com/uploads/assets/soruhavuzu_test/isleronline-{}.pdf";
