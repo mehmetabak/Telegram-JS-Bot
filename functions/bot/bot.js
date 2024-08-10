@@ -22,7 +22,7 @@ const htmlText = `
 
 🌐 <a href="https://mehmetabak.hashnode.dev/"><b>Hashnode Blog</b></a>
 
- 𝕏  <a href="https://x.com/Mehmetn45363159"><b>X Profile</b></a>
+ 𝕏  <a href="https://x.com/mehmet_m0s"><b>X Profile</b></a>
 
 🔗 <a href="https://www.linkedin.com/in/mehmet-a-12a716226/"><b>LinkedIn Profile</b></a>
 `;
