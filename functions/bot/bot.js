@@ -5,24 +5,24 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 const version = 'v0.2.1'
 
-const htmlText = `
-📌 <a href="https://m0s.vercel.app"><b>Personal Blog</b></a>
+// 📄 <a href="https://cv-ma.vercel.app"><b>CV</b></a>
 
-📄 <a href="https://cv-ma.vercel.app"><b>CV</b></a>
+const htmlText = `
+📌 <a href="https://m0s.space"><b>Personal Blog</b></a>
 
 🚀 <a href="https://mehmetabak.is-a.dev"><b>Portfolio</b></a>
 
 🏢 <a href="https://arastir.super.site"><b>Research Projects</b></a>
 
-📂 <a href="https://github.com/memoli0"><b>GitHub Profile</b></a>
+📂 <a href="https://github.com/mehmetabak"><b>GitHub Profile</b></a>
 
-📝 <a href="https://medium.com/@mehmetnurAbak"><b>Medium Articles</b></a>
+📝 <a href="https://abakmehmet.medium.com/"><b>Medium Articles</b></a>
 
-💻 <a href="https://dev.to/memoli0"><b>Dev.to Profile</b></a>
+💻 <a href="https://dev.to/mehmetabak"><b>Dev.to Profile</b></a>
 
 🌐 <a href="https://mehmetabak.hashnode.dev/"><b>Hashnode Blog</b></a>
 
- 𝕏  <a href="https://twitter.com/Mehmetn45363159"><b>X Profile</b></a>
+ 𝕏  <a href="https://x.com/Mehmetn45363159"><b>X Profile</b></a>
 
 🔗 <a href="https://www.linkedin.com/in/mehmet-a-12a716226/"><b>LinkedIn Profile</b></a>
 `;
