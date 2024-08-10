@@ -85,7 +85,7 @@ This repository contains a Telegram bot implemented in JavaScript, deployed usin
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Contact Me
-Have questions, suggestions, or want to collaborate? Feel free to reach out to me at [mehmetnurabak0@gmail.com](mailto:mehmetnurabak0@gmail.com). We'd love to hear from you!
+Have questions, suggestions, or want to collaborate? Feel free to reach out to me at [mehmetabak@proton.me](mailto:mehmetabak@proton.me). We'd love to hear from you!
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
