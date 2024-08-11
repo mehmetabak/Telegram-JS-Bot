@@ -57,7 +57,7 @@ bot.command('v0', async (ctx) => {
 
 bot.command('posts', async (ctx) => {
   try {
-      const response = await axios.get(`https://api.telegra.ph/getPageList?access_token=${process.env.BOT_TELEGRAPH}`);
+      const response = await axios.get(`https://api.telegra.ph/getPageList?access_token=${process.env.BOT_T}`);
     
       console.error('Data: ' + response.data.result)
 
